@@ -60,26 +60,28 @@
     </div>
 </div>
 
-{% if product.status %}
+{% if (product.status == "1") or (product.status == "0") %}
 <div class="item">
     <div>Disponível</div>
-    <span>
-        <input 
-            type="radio" 
-            name="status" 
-            value="1"
-            {% if product.gender == "1" %}} 
-            checked
-            {% endif %}>Sim
-    </span>
-    <span>
-        <input 
-            type="radio" 
-            name="status" 
-            value="0"
-            {% if product.gender == "0" %}} 
-            checked
-            {% endif %}>Não
-    </span>
+    <div>
+        <span>
+            <input 
+                type="radio" 
+                name="status" 
+                value="1"
+                {% if product.status == "1" %}} 
+                checked
+                {% endif %}>Sim
+        </span>
+        <span>
+            <input 
+                type="radio" 
+                name="status" 
+                value="0"
+                {% if product.status == "0" %}} 
+                checked
+                {% endif %}>Não
+        </span>
+    </div>
 </div>
 {% endif %}

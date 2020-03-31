@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
 
+:root {
+    --primary-color: #fd951f;
+    --secondary-color: #1f83fd;
+}
+
 * {
     margin: 0;
     padding: 0;
-    border: none;
+    box-sizing: border-box;
+    
     text-decoration: none;
     list-style-type: none;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #fd951f;
-    --secondary-color: #1fd4fd;
+    border: none;
 }
 
 html, body {
@@ -20,7 +21,10 @@ html, body {
 
 body {
     font-family: 'Roboto', sans-serif;
+
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -32,6 +36,8 @@ body {
 .button {
     background-color: var(--primary-color);
     color: white;
+
+
     font-weight: bold;
     text-transform: uppercase;
     font-size: 16px;
@@ -39,8 +45,9 @@ body {
     display: block;
     margin: 16px 0;
     padding: 12px 16px;
-    border-radius: 4px;
+    
     width: 100%;
+    border-radius: 4px;
 
     text-align: center;
     align-self: end;
@@ -53,6 +60,23 @@ body {
 .button:hover {
     background-color: #d7780b;
 }
+
+.button.edit {
+    background-color: var(--secondary-color);
+}
+
+.button.edit:hover {
+    background-color: #065bc2;
+}
+
+.button.delete {
+    background-color: lightgray;
+}
+
+.button.delete:hover {
+    background-color: #8f3e3e;
+}
+
 /* HEADER */
 
 header, footer {
@@ -91,7 +115,7 @@ header div.container a {
     letter-spacing: 2px;
 }
 
-/* HEADER SEARCH*/
+/* HEADER SEARCH */
 
 .search input {
     width: 100%;
@@ -148,6 +172,10 @@ section.form .header h3 {
     color: var(--primary-color);
 }
 
+form .fields {
+    margin-bottom: 64px;
+}
+
 form .item {
     margin-bottom: 16px;
 }
@@ -158,6 +186,10 @@ form .item > div:nth-child(1) {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 8px;
+}
+
+form .item textarea {
+    font-family: 'Roboto', sans-serif;
 }
 
 form .item input[type="text"],
@@ -193,6 +225,21 @@ form .item textarea {
     min-height: 150px;
 }
 
-form .fields {
-    margin-bottom: 64px;
+form .item span {
+    padding: 8px 14px;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    color: white;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    vertical-align: middle;
 }
+
+input[type="radio"]{
+    vertical-align: middle;
+    margin-right: 2px;
+  }
