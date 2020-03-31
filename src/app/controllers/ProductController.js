@@ -3,7 +3,6 @@ const Product = require('../models/Product')
 
 module.exports = {
     create(req, res) {
-
         Category.all().then(function(results) {
             const categories = results.rows
 
@@ -11,8 +10,6 @@ module.exports = {
         }).catch(function(err) {
             throw new Error(err)
         })
-        
-        
     },
     async post(req, res) {
         const keys = Object.keys(req.body)
@@ -29,6 +26,17 @@ module.exports = {
         results = await Category.all()
         const categories = results.rows
         
-        return res.render("products/create.njk", { productId, categories })
+        return res.redirect(`products/${productId}.njk`)
+    },
+    async edit(req, res) {
+        let results = await Product.find(req.params.id)
+        const product = results.rows[0]
+
+        if(!product) return res.send("Product not found!")
+
+        results = await Category.all()
+        const categories = results.rows
+        
+        return res.render("products/edit.njk", { product, categories })
     }
 }
