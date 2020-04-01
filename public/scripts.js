@@ -55,7 +55,15 @@ const PhotosUpload = {
         div.classList.add('photo')
         div.onclick = () => alert('remover foto')
         div.appendChild(image)
+        div.appendChild(PhotosUpload.createRemoveButton())
 
         return div
+    },
+    createRemoveButton() {
+        const button = document.createElement('i')
+        button.classList.add('material-icons')
+        button.innerHTML = "close"
+        
+        return button
     }
 }
