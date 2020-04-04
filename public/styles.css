@@ -33,6 +33,10 @@ body {
     margin: 0 auto;
 }
 
+footer {
+    margin-top: auto;
+}
+
 .button {
     background-color: var(--primary-color);
     color: white;
