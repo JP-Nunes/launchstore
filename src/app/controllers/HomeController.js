@@ -22,7 +22,7 @@ module.exports = {
             product.oldPrice = formatPrice(product.old_price)
             product.price = formatPrice(poduct.price)
             return product
-        })
+        }).filter((product, index) => index > 2 ? false : true)
 
         const lastAdded = await Promise.all(productsPromise)
 
