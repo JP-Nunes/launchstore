@@ -27,3 +27,8 @@ routes.get('/ads/create', function(req, res) {
 })
 
 module.exports = routes;
+
+//login/logout
+routes.get('/login', SessionController)
+routes.post('/login', SessionController)
+routes.post('/logout', SessionController)
