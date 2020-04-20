@@ -6,15 +6,15 @@ const ProductController = require('../app/controllers/ProductController')
 const SearchController = require('../app/controllers/SearchController')
 
 //Search
-routes.get('/products/search', SearchController.index)
+routes.get('/search', SearchController.index)
 
 //Products
-routes.get('/products/create', ProductController.create)
-routes.get('/products/:id', ProductController.show)
-routes.get('/products/:id/edit', ProductController.edit)
+routes.get('/create', ProductController.create)
+routes.get('/:id', ProductController.show)
+routes.get('/:id/edit', ProductController.edit)
 
-routes.post('/products', multer.array("photos", 6), ProductController.post)
-routes.put('/products', multer.array("photos", 6), ProductController.put)
-routes.delete('/products', ProductController.delete)
+routes.post('/', multer.array("photos", 6), ProductController.post)
+routes.put('/', multer.array("photos", 6), ProductController.put)
+routes.delete('/', ProductController.delete)
 
 module.exports = routes;
