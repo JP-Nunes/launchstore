@@ -1,0 +1,86 @@
+<div class="item">
+    <div>Nome Completo</div>
+    <div>
+        <input 
+            type="text" 
+            name="name"
+            placeholder="Seu nome completo aqui"
+            value="{{ user.name }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input 
+            type="email" 
+            name="email"
+            placeholder="Seu melhor email aqui"
+            value="{{ user.email }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Senha</div>
+    <div>
+        <input 
+            type="password" 
+            name="password"
+            placeholder="Sua senha aqui"
+            value="{{ user.password }}"
+        >
+    </div>
+</div>
+
+{% if not user.id %}
+
+<div class="item">
+    <div>Repita sua senha</div>
+    <div>
+        <input 
+            type="password" 
+            name="passwordRepeat"
+            placeholder="Por favor, repita a senha"
+        >
+    </div>
+</div>
+
+{% endif %}
+
+<div class="item">
+    <div>CPF ou CNPJ</div>
+    <div>
+        <input 
+            type="text" 
+            name="cpf_cnpj"
+            placeholder="CPF ou CNPJ"
+            value="{{ user.cpf_cnpj }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>CEP</div>
+    <div>
+        <input 
+            type="text" 
+            name="cep"
+            placeholder="00000-000"
+            value="{{ user.cep }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Endereço Completo</div>
+    <div>
+        <input 
+            type="text" 
+            name="address"
+            placeholder="Seu endereço completo aqui"
+            value="{{ user.address }}"
+        >
+    </div>
+</div>
