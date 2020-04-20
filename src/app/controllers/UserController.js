@@ -1,17 +1,5 @@
-class UserController {
+module.exports = {
    registerForm(req, res) {
-      return res.redirect('/products')
+      return res.render("user/register")
    }
 }
-
-class Person {
-   constructor(name) {
-      this.name = name
-   }
-
-   getName() {
-      return this.name
-   }
-}
-
-module.exports = new UserController()
