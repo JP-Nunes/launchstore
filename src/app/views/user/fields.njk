@@ -18,6 +18,7 @@
             name="email"
             placeholder="Seu melhor email aqui"
             value="{{ user.email }}"
+            onblur="Validate.apply(this, 'isEmail')"
         >
     </div>
 </div>
