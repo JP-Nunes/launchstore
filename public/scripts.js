@@ -38,7 +38,7 @@ const Mask = {
       value = value.replace(/\D/g, "")
       value = value.replace(/(\d{5})(\d)/g, "$1-$2")
 
-      if(value.length > 8) value = value.slice(0, -1)
+      if(value.length > 9) value = value.slice(0, -1)
          
       return value
    }
@@ -191,14 +191,12 @@ const Validate = {
       input.value = results.value
 
       if(results.error) Validate.displayError(input, results.error)
-
    },
    displayError(input, error) {
       const div = document.createElement('div')
       div.classList.add('error')
       div.innerHTML = error
       input.parentNode.appendChild(div)
-      input.focus()
    }, 
    clearErrors(input) {
       const errorDiv = input.parentNode.querySelector(".error")
