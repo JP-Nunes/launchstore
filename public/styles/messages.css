@@ -18,10 +18,10 @@
    animation: hidemessage 400ms 5s ease-out forwards;
 }
 
-.messages .error {
-   background: #e74c3c;
+.messages.error {
+   background-color: #e74c3c;
 }
 
-.messages .success {
-   background: #04d361;
+.messages.success {
+   background-color: #04d361;
 }
