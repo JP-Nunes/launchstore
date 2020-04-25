@@ -23,7 +23,7 @@ routes.post('/register', Validator.post, UserController.post)
 //routes.post('/register', UserController.post)
 
 routes.get('/', UserController.show)
-//routes.put('/:id/update', UserController.update)
+routes.put('/:id/update', Validator.show, UserController.update)
 //routes.delete('/:id/delete', UserController.delete)
 
 module.exports = routes;
