@@ -13,10 +13,10 @@ routes.get('/search', SearchController.index)
 //Products
 routes.get('/create', redirectNotUser, ProductController.create)
 routes.get('/:id', ProductController.show)
-routes.get('/:id/edit', ProductController.edit)
+routes.get('/:id/edit', redirectNotUser, ProductController.edit)
 
-routes.post('/', multer.array("photos", 6), ProductController.post)
-routes.put('/', multer.array("photos", 6), ProductController.put)
-routes.delete('/', ProductController.delete)
+routes.post('/', redirectNotUser, multer.array("photos", 6), ProductController.post)
+routes.put('/', redirectNotUser, multer.array("photos", 6), ProductController.put)
+routes.delete('/', redirectNotUser, ProductController.delete)
 
 module.exports = routes;
