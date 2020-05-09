@@ -9,7 +9,7 @@ module.exports = {
    
       return results.rows
    },
-   search(params) {
+   async search(params) {
       const { filter, category } = params
 
       let query = "", filterQuery = 'WHERE'
@@ -36,7 +36,9 @@ module.exports = {
           ${filterQuery}
       `
 
-      return db.query(query)
+      const results = await db.query(query)
+      
+      return results.rows
    },
 
    /* create(data) {
