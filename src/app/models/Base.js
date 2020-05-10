@@ -13,6 +13,7 @@ function find(filters, table) {
       })
    }
 
+
    return db.query(query)
 }
 
@@ -44,12 +45,12 @@ const Base = {
 
          Object.keys(fields).map(key => {
             keys.push(key)
-            values.push(fields[key])
+            values.push(`'${fields[key]}'`)
          })
 
          const query = `
             INSERT INTO ${this.table} (${keys.join(',')})
-            VALUES (${values})
+            VALUES (${values.join(',')})
             RETURNING id
          `
 
