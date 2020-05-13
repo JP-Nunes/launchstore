@@ -1,5 +1,7 @@
 const Product = require('../models/Product')
 
+const { formatPrice, date } = require('../../lib/utils')
+
 async function getImages(productId) {
    let files = await Product.files(productId)
    files = files.map(file => ({
@@ -17,14 +19,14 @@ async function format(product) {
    product.formatedOldPrice = formatPrice(product.old_price)
    product.formatedPrice = formatPrice(product.price)
 
-   const productsPromise = products.map(async product => {
-      product.img = await getImage(product.id)
-      product.oldPrice = formatPrice(product.old_price)
-      product.price = formatPrice(product.price)
-      return product
-   })
+   const { day, hours, minutes, month } = date(product.updated_at)
 
-   products = await Promise.all(productsPromise)
+   product.published = {
+      day: `${day}/${month}`,
+      hours: `${hours}h${minutes}`
+   }
+
+   return product
 }
 
 const LoadService = {
@@ -36,13 +38,23 @@ const LoadService = {
    product() {
       try {
          const product = await Product.findOne(this.filter)
-         return product
+         
+         return format(product)
       } catch (err)  {
          console.error(err)
       }
    },
-   products() {},
-   formatea
+   products() {
+      try {
+         const products = await Product.findAll(this.filter)
+         const productsPromise = products.map(format)
+
+         return Promise.all(productsPromise)
+      } catch (err) {
+         console.error(err)
+      }
+   },
+   format
 }
 
 module.exports = LoadService
