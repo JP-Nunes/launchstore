@@ -1,6 +1,7 @@
 /* user register */
 
-.user-register {
+.user-register,
+.user-dashboard {
    max-width: 500px;
 }
 
