@@ -31,6 +31,6 @@ routes.delete('/', UserController.delete)
 
 routes.get('/ads', UserController.ads)
 
-routes.post('/orders', UserValidator, OrderController.post)
+routes.post('/orders', redirectNotUser, OrderController.post)
 
 module.exports = routes;
