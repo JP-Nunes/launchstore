@@ -1,5 +1,9 @@
 /* PRODUCT VIEW */
 
+.product-create {
+   max-width: 700px;
+}
+
 .product-single .card-content{
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -155,8 +159,12 @@
    letter-spacing: .4px;
 }
 
-/* product-card */
+.product-single .unavailable {
+   font-size: 14px;
+   color: #ccc;
+   font-weight: bold;
 
-.product-create {
-   max-width: 700px;
+   background: #eee;
+
+   padding: 8px 16px;
 }
