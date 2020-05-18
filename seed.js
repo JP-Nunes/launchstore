@@ -35,9 +35,9 @@ async function createProducts() {
    while(products.length < totalProducts) {
       products.push({
          category_id: Math.ceil(Math.random() * 3),
-         user_id: UsersIds[Math.floor(Math.random() * totalUsers)],
+         user_id: usersIds[Math.floor(Math.random() * totalUsers)],
          name: faker.name.title(),
-         description: faker.lorem.paragraph(Match.ceil(Math.random() * 8)),
+         description: faker.lorem.paragraph(Math.ceil(Math.random() * 8)),
          old_price: faker.random.number(9999),
          price: faker.random.number(9999),
          quantity: faker.random.number(99),
