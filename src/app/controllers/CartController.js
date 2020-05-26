@@ -23,8 +23,6 @@ module.exports = {
 
       let { cart } = req.session
 
-      console.log(product)
-
       req.session.cart = Cart.init(cart).addOne(product)
 
       return res.redirect('/cart')
@@ -39,6 +37,16 @@ module.exports = {
 
       req.session.cart = cart
 
+      return res.redirect('/cart')
+   },
+   delete(req, res) {
+      let { id } = req.params
+      let { cart } = req.session
+
+      if(!cart) return
+      
+      req.session.cart = Cart.init(cart).delete(id)
+      
       return res.redirect('/cart')
    }
 }
