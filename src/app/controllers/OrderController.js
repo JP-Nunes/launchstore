@@ -7,7 +7,7 @@ const email = (seller, product, buyer) => `
 <h2>Olá ${seller.name}</h2>
 <p>Você tem um novo pedido de compra de seu produto</p>
 <p>Produto: ${product.name}</p>
-<p>Preço: ${product.formatedPrice}</p>
+<p>Preço: ${product.formattedPrice}</p>
 <p><br/><br/></p>
 <h3>Dados do comprador ${seller.name}</h3>
 <p>Nome: ${buyer.name}</p>

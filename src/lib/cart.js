@@ -10,7 +10,7 @@ const Cart = {
          this.total = {
             quantity: 0,
             price: 0,
-            formatedPrice: formatPrice(0)
+            formattedPrice: formatPrice(0)
          }
       }
 
@@ -24,11 +24,11 @@ const Cart = {
          inCart = {
             product: {
                ...product,
-               formatedPrice: formatPrice(product.price)
+               formattedPrice: formatPrice(product.price)
             },
             quantity: 0,
             price: 0,
-            formatedPrice: formatPrice(0)
+            formattedPrice: formatPrice(0)
          }
 
          this.items.push(inCart)
@@ -38,11 +38,11 @@ const Cart = {
 
       inCart.quantity++
       inCart.price = inCart.product.price * inCart.quantity
-      inCart.formatedPrice = formatPrice(inCart.price)
+      inCart.formattedPrice = formatPrice(inCart.price)
    
       this.total.quantity++
       this.total.price += inCart.product.price
-      this.formatedPrice = formatPrice(this.total.price)
+      this.total.formattedPrice = formatPrice(this.total.price)
    
       return this
    },
@@ -54,11 +54,11 @@ const Cart = {
 
       inCart.quantity--
       inCart.price = inCart.product.price * inCart.quantity
-      inCart.formatedPrice = formatPrice(inCart.price)
+      inCart.formattedPrice = formatPrice(inCart.price)
    
       this.total.quantity--
       this.total.price -= inCart.product.price
-      this.total.formatedPrice = formatPrice(this.total.price)
+      this.total.formattedPrice = formatPrice(this.total.price)
    
       if(inCart.quantity < 1) {
          const itemIndex = this.items.indexOf(inCart)
@@ -77,7 +77,7 @@ const Cart = {
       if(this.items.length > 0) {
          this.total.quantity -= inCart.quantity
          this.total.price -= (inCart.product.price * inCart.quantity)
-         this.total.formatedPrice = formatPrice(this.total.price)
+         this.total.formattedPrice = formatPrice(this.total.price)
       }
 
       this.items = this.items.filter(item => inCart.product.id != item.product.id)

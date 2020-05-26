@@ -35,7 +35,7 @@
                      <span class="title">{{item.product.name}}</span>
                   </a>
 
-                  <span class="price">{{item.formatedPrice}}</span>
+                  <span class="price">{{item.formattedPrice}}</span>
 
                   <div class="quantity-control">
                      <form action="/cart/{{item.product.id}}/remove-one" method="POST">
@@ -66,7 +66,7 @@
 
          <div class="total">
             <p>Total</p>
-            <span>{{cart.total.formatedPrice}}</span>
+            <span>{{cart.total.formattedPrice}}</span>
          </div>
 
          <div class="actions">
