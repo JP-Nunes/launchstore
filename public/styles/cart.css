@@ -130,3 +130,17 @@
    transition: 200ms;
 }
 
+/* empty cart */
+
+.cart-empty {
+   text-align: center;
+}
+
+.cart-empty p {
+   font-size: 18px;
+}
+
+.cart-empty .button {
+   width: 240px;
+   margin: 16px auto;
+}
