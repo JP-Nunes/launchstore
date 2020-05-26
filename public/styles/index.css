@@ -79,7 +79,7 @@ footer {
    background-color: #8f3e3e;
 }
 
-/* HEADER */
+/** HEADER AND FOOTER **/
 
 header, footer {
    background-color: black;
@@ -91,9 +91,11 @@ header, footer {
    text-align: center;
 }
 
+/** HEADER **/
+
 header div.container {
    display: grid;
-   grid-template-columns: 220px 1fr 280px;
+   grid-template-columns: 220px auto 315px;
    align-items: center;
    grid-gap: 24px;
 }
@@ -102,7 +104,7 @@ header div.container a {
    justify-self: start;
 }
 
-/* LOGO */
+/* logo */
 
 .logo h1 {
    color: white;
@@ -117,7 +119,7 @@ header div.container a {
    letter-spacing: 2px;
 }
 
-/* HEADER SEARCH */
+/* header search */
 
 .search input {
    width: 100%;
@@ -126,7 +128,7 @@ header div.container a {
    font-size: 16px;
 }
 
-/* PRIMARY MENU */
+/* primary menu */
 
 nav.primary ul {
    display: flex;
@@ -149,7 +151,36 @@ nav.primary ul li a i {
    margin-right: 8px;
 }
 
-/* PRODUCTS FORM */
+nav.primary ul li.cart-icon a {
+   position: relative;
+}
+
+nav.primary ul li.cart-icon a span {
+   background-color: red;
+   
+   width: 20px;
+   height: 20px;
+   
+   font-size: 12px;
+   font-weight: bold;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   position: absolute;
+   top: 10px;
+   right: 0;
+
+   border-radius: 50%;
+}
+
+nav.primary ul li.cart-icon a:hover span {
+   background-color: white;
+   color: black;
+}
+
+/** PRODUCTS FORM **/
 
 section.form {
    background-color: white;
