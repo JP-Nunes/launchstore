@@ -65,6 +65,29 @@ CREATE TABLE "users" (
 -- foreign key
 ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
+-- creating table orders
+CREATE TABLE "orders" (
+ "id" SERIAL PRIMARY KEY,
+ "seller_id" int NOT NULL,
+ "buyer_id" int NOT NULL,
+ "product_id" int NOT NULL,
+ "price" int NOT NULL,
+ "quantity" int DEFAULT 0,
+ "total" int NOT NULL,
+ "status" text NOT NULL,
+ "created_at" timestamp DEFAULT (now()),
+ "updated_at" timestamp DEFAULT (now())
+);
+ 
+ALTER TABLE "orders" ADD FOREIGN KEY ("seller_id") REFERENCES "users" ("id");
+ALTER TABLE "orders" ADD FOREIGN KEY ("buyer_id") REFERENCES "users" ("id");
+ALTER TABLE "orders" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON orders
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
 -- create procedure
 CREATE FUNCTION trigger_set_timestamp()
 RETURNS TRIGGER AS $$
@@ -101,7 +124,6 @@ ALTER TABLE "users" ADD COLUMN reset_token text;
 ALTER TABLE "users" ADD COLUMN reset_token_expires text;
 
 -- cascade effect when delete user and products
-
 ALTER TABLE "products"
 DROP CONSTRAINT products_user_id_fkey,
 ADD CONSTRAINT products_user_id_fkey
