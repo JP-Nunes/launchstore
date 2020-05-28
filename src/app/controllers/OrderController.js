@@ -63,6 +63,9 @@ module.exports = {
          })
 
          await Promise.all(createOrdersPromise)
+
+         delete req.session.cart
+         Cart.init()
          
          return res.render('orders/success')
       }
