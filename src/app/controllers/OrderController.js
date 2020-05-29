@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const Order = require('../models/Order')
 const LoadProductService = require('../services/LoadProductService')
+const LoadOrderService = require('../services/LoadOrderService')
 
 const Cart = require('../../lib/cart')
 const mailer = require('../../lib/mailer')
@@ -25,43 +26,20 @@ const email = (seller, product, buyer) => `
 
 module.exports = {
    async index(req, res) {
-      let orders = await Order.findAll({ where: { buyer_id: req.session.userId } })
 
-      const getOrdersPromise = orders.map(async order => {
-         order.product = await LoadProductService.load('product', {
-            where: { id: order.product_id }
-         })
-
-         order.buyer = await User.findOne({
-            where: { id: order.buyer_id }
-         })
-
-         order.seller = await User.findOne({
-            where: { id: order.seller_id }
-         })
-
-         order.formattedPrice = formatPrice(order.price)
-         order.formattedTotal = formatPrice(order.total)
-
-         const status = {
-            open: 'Aberto',
-            sold: 'Vendido',
-            canceled: 'Cancelado'
-         }
-
-         order.formattedStatus = status[order.status]
-
-         const updatedAt = date(order.updated_at)
-         order.formattedUpdatedAt = `
-         ${order.formattedStatus} em 
-         ${updatedAt.day}/${updatedAt.month}/${updatedAt.year} às 
-         ${updatedAt.hour}:${updatedAt.minute}
-         `
-
-         return order
+      const orders = await LoadOrderService.load('orders', {
+         where: { buyer_id: req.session.userId }
       })
 
-      orders = await Promise.all(getOrdersPromise)
+      console.log(orders)
+
+      return res.render('orders/index', { orders })
+   },
+   async sales(req, res) {
+
+      const orders = await LoadOrderService.load('orders', {
+         where: { seller_id: req.session.userId }
+      })
 
       return res.render('orders/index', { orders })
    },
