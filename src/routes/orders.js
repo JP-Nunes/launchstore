@@ -7,6 +7,8 @@ const { redirectNotUser } = require('../app/middlewares/session')
 
 routes.get('/', OrderController.index)
 routes.get('/sales', OrderController.sales)
+routes.get('/:id', OrderController.show)
+
 routes.post('/', redirectNotUser, OrderController.post)
 
 module.exports = routes;

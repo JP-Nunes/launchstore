@@ -31,8 +31,6 @@ module.exports = {
          where: { buyer_id: req.session.userId }
       })
 
-      console.log(orders)
-
       return res.render('orders/index', { orders })
    },
    async sales(req, res) {
@@ -42,6 +40,13 @@ module.exports = {
       })
 
       return res.render('orders/index', { orders })
+   },
+   async show(req, res) {
+      const order = await LoadOrderService.load('order', {
+         where: { id: req.params.id }
+      })
+
+      return res.render('orders/details', { order })
    },
    async post(req, res) {
       try {
