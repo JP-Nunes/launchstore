@@ -33,7 +33,7 @@ async function format(order) {
    order.formattedUpdatedAt = `
    ${order.formattedStatus} em 
    ${updatedAt.day}/${updatedAt.month}/${updatedAt.year} às 
-   ${updatedAt.hour}:${updatedAt.minute}
+   ${updatedAt.hours}:${updatedAt.minutes}
    `
 
    return order
