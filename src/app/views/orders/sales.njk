@@ -48,7 +48,7 @@
                      <ul class="dropdown">
                         <li><a href="/orders/{{sale.id}}">Ver Pedido</a></li>
                         <li><a href="/orders/{{sale.product.id}}/edit">Editar Produto</a></li>
-                        {% if sales.status == 'open' %}
+                        {% if sale.status == 'open' %}
                         <li>
                            <form action="/orders/{{sale.id}}/close" method="POST">
                               <button>Marcar como Vendido</button>
