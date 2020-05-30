@@ -47,7 +47,7 @@
                      Opções <i class="material-icons">arrow_drop_down</i>
                      <ul class="dropdown">
                         <li><a href="/orders/{{sale.id}}">Ver Pedido</a></li>
-                        <li><a href="/orders/{{sale.product.id}}/edit">Editar Produto</a></li>
+                        <li><a href="/products/{{sale.product.id}}/edit">Editar Produto</a></li>
                         {% if sale.status == 'open' %}
                         <li>
                            <form action="/orders/{{sale.id}}/close" method="POST">
