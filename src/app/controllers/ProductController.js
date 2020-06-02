@@ -5,8 +5,6 @@ const LoadProductService = require('../services/LoadProductService')
 
 const { unlinkSync } = require('fs')
 
-const { formatPrice, date } = require('../../lib/utils')
-
 module.exports = {
    async create(req, res) {    
       try {
