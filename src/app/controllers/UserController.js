@@ -29,8 +29,8 @@ module.exports = {
          let { name, email, password, cpf_cnpj, cep, address } = req.body
 
          password = await hash(password, 8)
-         data.cpf_cnpj.replace(/\D/g, "") 
-         data.cep.replace(/\D/g, "")
+         req.body.cpf_cnpj.replace(/\D/g, "") 
+         req.body.cep.replace(/\D/g, "")
          
          const userId = await User.create({
             name, email, password,
